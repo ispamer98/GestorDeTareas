@@ -1,0 +1,226 @@
+/* Estilos para el título principal */
+.titulo {
+    font-family: 'Seymour One', sans-serif; /* Fuente personalizada */
+    font-size: 3rem; /* Tamaño grande */
+    text-align: center; /* Alineación centrada */
+    font-weight: bold; /* Negrita */
+    background: linear-gradient(to right, #000000, #00008b); /* Gradiente de fondo */
+    -webkit-background-clip: text; /* Clip de fondo solo en el texto */
+    -webkit-text-fill-color: transparent; /* Relleno transparente para mostrar gradiente */
+}
+
+/* Estilos para el título secundario */
+h1.display-4.titulo {
+    font-size: 2rem; /* Ajuste de tamaño de fuente */
+}
+
+/* Estilos para el contenedor principal */
+.container {
+    margin: 20px; /* Margen exterior para centrar horizontalmente */
+    padding: 20px; /* Relleno dentro del contenedor */
+    max-width: 900px; /* Ancho máximo del contenedor */
+    background: rgba(255, 255, 255, 0.4); /* Fondo blanco con transparencia */
+}
+
+/* Estilos para el encabezado */
+header {
+    background: rgba(0, 0, 0, 0.3); /* Fondo negro semi-transparente */
+    padding: 20px 20px; /* Relleno vertical */
+    text-align: center; /* Alineación centrada del texto */
+    position: relative; /* Posicionamiento relativo */
+    z-index: 1; /* Capa de apilamiento */
+}
+
+/* Pseudo-elemento antes del encabezado */
+header::before {
+    content: ""; /* Contenido vacío para el pseudo-elemento */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Desde la parte superior */
+    left: 0; /* Desde la parte izquierda */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background: linear-gradient(to right, rgba(30, 144, 255, 0.5), rgba(123, 104, 238, 0.5)); /* Degradado de colores */
+    z-index: -1; /* Poner detrás del contenido */
+}
+
+/* Estilos para el título dentro del encabezado */
+header h1 {
+    margin: 10px; /* Margen alrededor del título */
+}
+
+/* Estilos para html y body */
+html, body {
+    height: 100%; /* Ocupar toda la altura de la ventana */
+    margin: 0; /* Eliminar margen predeterminado */
+    display: flex; /* Mostrar como flexbox */
+    flex-direction: column; /* Colocar elementos hijos en columna */
+}
+
+body {
+    background-image: url('../images/background.jpg'); /* Imagen de fondo */
+    background-size: cover; /* Ajuste de tamaño de la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-attachment: fixed; /* Fondo fijo al hacer scroll */
+    display: flex; /* Mostrar como flexbox */
+    flex-direction: column; /* Colocar elementos hijos en columna */
+    min-height: 100vh; /* Altura mínima de la ventana */
+    margin: 0; /* Eliminar margen */
+    padding-bottom: 40px; /* Espacio para el margen inferior del footer */
+    box-sizing: border-box; /* Incluye el relleno en el cálculo del tamaño total */
+}
+
+/* Estilos para el contenido principal */
+main {
+    flex: 1; /* Permite que main ocupe todo el espacio disponible */
+    display: flex; /* Mostrar como flexbox */
+    flex-direction: column; /* Colocar elementos hijos en columna */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    padding: 20px; /* Espaciado adicional si es necesario */
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #333; /* Fondo gris oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 20px 0; /* Relleno vertical */
+    text-align: center; /* Alineación centrada del texto */
+    font-family: 'Poppins', sans-serif; /* Fuente Poppins */
+    position: relative; /* Posicionamiento relativo */
+    bottom: 0; /* Desde la parte inferior */
+    width: 100%; /* Ancho completo */
+    margin-top: auto; /* Empuja el footer al final del contenido */
+    box-sizing: border-box; /* Incluye el relleno en el cálculo del tamaño total */
+}
+
+/* Estilos para la tarjeta personalizada */
+.custom-card {
+    background-color: #f0f0f0 !important; /* Fondo gris claro */
+    border: 3px solid #000 !important; /* Borde negro */
+    border-radius: 15px !important; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; /* Sombra suave */
+    width: 100%; /* Ancho completo */
+    max-width: 600px; /* Ancho máximo */
+    margin: auto; /* Centrado vertical */
+    padding: 20px; /* Relleno interior */
+    padding-bottom: 40px; /* Agrega un padding de 40px al final de la card */
+}
+
+/* Estilos para el encabezado y cuerpo de la tarjeta personalizada */
+.custom-card-header, .custom-card-body {
+    background-color: #f0f0f0 !important; /* Fondo blanco perlado */
+    color: #000 !important; /* Texto en negro */
+    border-top: 3px solid #000 !important; /* Borde negro superior */
+    padding: 10px 15px !important; /* Relleno en el encabezado y cuerpo */
+}
+
+/* Estilos específicos para el encabezado de la tarjeta personalizada */
+.custom-card-header {
+    border-top-left-radius: 15px !important; /* Borde redondeado en la esquina superior izquierda */
+    border-top-right-radius: 15px !important; /* Borde redondeado en la esquina superior derecha */
+    border-top: none !important; /* Eliminar borde superior del encabezado */
+}
+
+/* Estilos específicos para el cuerpo de la tarjeta personalizada */
+.custom-card-body {
+    border-bottom-left-radius: 15px !important; /* Borde redondeado en la esquina inferior izquierda */
+    border-bottom-right-radius: 15px !important; /* Borde redondeado en la esquina inferior derecha */
+    background-color: #f7f7f7 !important; /* Fondo gris suave */
+}
+
+/* Estilos para los elementos de la lista */
+.list-group-item {
+    display: flex !important; /* Mostrar como flexbox */
+    align-items: center !important; /* Alinear elementos hijos verticalmente al centro */
+}
+
+/* Estilos adicionales para el formulario dentro de la tarjeta */
+.custom-card form {
+    padding: 10px; /* Relleno dentro del formulario */
+}
+
+/* Estilos para los campos de formulario dentro de la tarjeta */
+.custom-card .form-control {
+    border: 2px solid #ced4da; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    padding: 12px; /* Relleno interior */
+    font-family: 'Poppins', sans-serif; /* Fuente Poppins */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Alineación centrada del texto ingresado */
+}
+
+/* Estilos para el texto del placeholder del formulario */
+.custom-card .form-control::placeholder {
+    text-align: center; /* Alineación centrada del texto del placeholder */
+}
+
+/* Estilos cuando el campo de formulario tiene foco */
+.custom-card .form-control:focus {
+    border-color: #007bff; /* Borde azul al tener foco */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra al tener foco */
+}
+
+/* Estilos para el botón primario dentro de la tarjeta */
+.custom-card .btn-primary {
+    font-family: 'Poppins', sans-serif; /* Fuente Poppins */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Estilos para el contenedor de comentarios */
+.comment-container {
+    width: 100% !important; /* Ajusta el ancho para asegurar que el comentario ocupe el espacio completo */
+}
+
+/* Estilos para el encabezado del comentario */
+.comment-header {
+    display: flex; /* Mostrar como flexbox */
+    align-items: center; /* Alinear elementos hijos verticalmente al centro */
+    justify-content: space-between; /* Espacio entre elementos */
+    background-color: #e0e0e0; /* Fondo gris claro */
+    padding: 10px; /* Relleno */
+    border-radius: 10px 10px 0 0; /* Bordes redondeados */
+}
+
+/* Estilos para el nombre del comentario */
+.comment-name {
+    flex: 0 0 50%; /* No crecer, no encoger, mitad del espacio */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Estilos para el contenido del comentario */
+.comment-content {
+    padding: 10px; /* Relleno */
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border-radius: 0 0 10px 10px; /* Bordes redondeados */
+    width: 100%; /* Ancho completo */
+    resize: none; /* No redimensionable */
+    word-wrap: break-word; /* División de palabras */
+    overflow-wrap: break-word; /* División de palabras */
+}
+
+/* Estilos para el ícono de papelera básico */
+.trash-icon svg.filled {
+    display: none; /* Ocultar el ícono de papelera lleno por defecto */
+}
+
+/* Estilos para el ícono de papelera básico visible */
+.trash-icon svg.basic {
+    display: block; /* Mostrar el ícono de papelera básico */
+}
+
+/* Estilos para el ícono de papelera lleno al pasar el ratón */
+.trash-icon:hover svg.basic {
+    display: none; /* Ocultar el ícono de papelera básico al pasar el ratón */
+}
+
+/* Estilos para el ícono de papelera lleno visible al pasar el ratón */
+.trash-icon:hover svg.filled {
+    display: block; /* Mostrar el ícono de papelera lleno al pasar el ratón */
+}
+
+/* Contenedor para los botones */
+.buttons_container {
+    margin-top: 20px; /* Margen superior de 20px */
+    padding-left: 20%; /* Padding del 20% del ancho total */
+}

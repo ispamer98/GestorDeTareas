@@ -1,0 +1,61 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5. -->
+<html lang="es"> <!-- Define el idioma del contenido como español. -->
+<head> <!-- Inicia la cabecera de la página, donde se definen aspectos básicos generales. -->
+    <meta charset="UTF-8"> <!-- Especifica la codificación de caracteres del documento como UTF-8. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Controla cómo se muestra la página en dispositivos móviles, asegurando que el ancho del viewport sea igual al del dispositivo y el nivel de zoom inicial sea 1.0. -->
+    <title>Formulario Comentarios</title> <!-- Define el título de la página que se muestra en la pestaña del navegador. -->
+
+    <!-- Enlaza Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Seymour+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Enlaza el archivo CSS externo para los estilos de la página -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/comentarios.css') }}">
+    <!-- Enlaza Bootstrap para el diseño responsivo y componentes CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlaza Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css" integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" crossorigin="anonymous">
+</head>
+
+<body>
+    <header> <!-- Sección de encabezado de la página. -->
+        <div class="container"> <!-- Contenedor principal para centrar y dar estilo al contenido dentro del encabezado. -->
+            <h1 class="display-4 text-center mt-4 titulo">Formulario Comentarios</h1> <!-- Título principal de bienvenida. -->
+        </div>
+    </header>
+
+    <main>
+        <div class="buttons_container"> <!-- Contenedor para los botones de navegación. -->
+            <a href="comentarios" class="btn btn-secondary btn-small">← Atras</a> <!-- Botón para volver a la página de comentarios. -->
+            <a href="/" class="btn btn-secondary btn-small">Inicio</a> <!-- Botón para ir a la página de inicio. -->
+        </div>
+        <div class="card_container"> <!-- Contenedor para la tarjeta del formulario. -->
+            <div class="container"> <!-- Contenedor Bootstrap para centrar el contenido. -->
+                <div class="custom-card"> <!-- Tarjeta personalizada para el formulario. -->
+                    <div class="custom-card-header"> <!-- Encabezado de la tarjeta. -->
+                        <h2>Rellena el formulario</h2> <!-- Título del formulario. -->
+                    </div>
+                    <div class="custom-card-body"> <!-- Cuerpo de la tarjeta donde se encuentra el formulario. -->
+                        <form action="/create_comment" method="post"> <!-- Formulario con acción de enviar a la ruta /create_comment usando el método POST. -->
+                            <div class="form-group"> <!-- Grupo de formulario para el nombre. -->
+                                <label for="name">Nombre:</label> <!-- Etiqueta del campo de entrada de nombre. -->
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Ingresa tu nombre" required maxlength="20"> <!-- Campo de entrada para el nombre, con un límite de 20 caracteres. -->
+                            </div>
+                            <div class="form-group"> <!-- Grupo de formulario para el comentario. -->
+                                <label for="comment">Comentario:</label> <!-- Etiqueta del campo de texto para el comentario. -->
+                                <textarea id="comment" name="comment" class="form-control" placeholder="Escribe tu comentario aquí" rows="5" required maxlength="150"></textarea> <!-- Área de texto para el comentario, con un máximo de 150 caracteres y 5 filas de altura visible. -->
+                            </div>
+                            <button type="submit" class="btn btn-primary">Publicar Comentario</button> <!-- Botón para enviar el formulario. -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer> <!-- Sección de pie de página. -->
+        <div class="container"> <!-- Contenedor Bootstrap para centrar y dar estilo al contenido del pie de página. -->
+            <p>&copy; 2024 Tokio School. Autor Rubén Salazar.</p> <!-- Texto de derechos de autor y autor. -->
+        </div>
+    </footer>
+
+</body> <!-- Fin del cuerpo de la web. -->
+</html> <!-- Fin del código HTML. -->

@@ -1,0 +1,78 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5. -->
+<html lang="es"> <!-- Define el idioma del contenido como español. -->
+<head> <!-- Inicia la cabecera de la página, donde se definen aspectos básicos generales. -->
+    <meta charset="UTF-8"> <!-- Especifica la codificación de caracteres del documento como UTF-8. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Controla cómo se muestra la página en dispositivos móviles, asegurando que el ancho del viewport sea igual al del dispositivo y el nivel de zoom inicial sea 1.0. -->
+    <title>Comentarios</title> <!-- Define el título de la página que se muestra en la pestaña del navegador. -->
+
+    <!-- Enlaza Google Fonts para estilos de texto personalizados -->
+    <link href="https://fonts.googleapis.com/css2?family=Seymour+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Enlaza el archivo CSS externo para los estilos personalizados de la página -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/comentarios.css') }}">
+    <!-- Enlaza Bootstrap para el diseño responsivo y componentes CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlaza Font Awesome para iconos adicionales -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css" integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" crossorigin="anonymous">
+</head>
+
+<body>
+    <header> <!-- Sección de encabezado de la página. -->
+        <div class="container"> <!-- Contenedor principal para centrar y dar estilo al contenido dentro del encabezado. -->
+            <h1 class="display-4 text-center mt-4 titulo">Comentarios</h1> <!-- Título principal de la página. -->
+        </div>
+    </header>
+
+    <main>
+        <div class="buttons_container"> <!-- Contenedor para los botones de navegación. -->
+            <a href="/" class="btn btn-secondary">Inicio</a> <!-- Botón para ir a la página de inicio. -->
+            <a href="formulario-comentarios" class="btn btn-secondary">Publicar Comentario</a> <!-- Botón para ir al formulario de comentarios. -->
+        </div>
+
+        <div class="container"> <!-- Contenedor Bootstrap para centrar el contenido principal. -->
+            <div class="custom-card"> <!-- Tarjeta personalizada para contener la lista de comentarios. -->
+                <div class="custom-card-header"> <!-- Encabezado de la tarjeta. -->
+                    <h2>Lista de Comentarios</h2> <!-- Título de la sección de comentarios. -->
+                </div>
+                <div class="custom-card-body"> <!-- Cuerpo de la tarjeta donde se muestra la lista de comentarios. -->
+                    <ul class="list-group"> <!-- Lista de comentarios, estilizada como un grupo de Bootstrap. -->
+                        {% for comment in comments_list %} <!-- Inicio del bucle para recorrer y mostrar cada comentario. -->
+                            <li class="list-group-item"> <!-- Elemento de la lista para cada comentario. -->
+                                <div class="comment-container"> <!-- Contenedor para un comentario individual. -->
+                                    <!-- Primer grupo: cabecera del comentario -->
+                                    <div class="comment-header"> <!-- Contenedor para la cabecera del comentario, incluyendo nombre, fecha y acciones. -->
+                                        <div class="comment-name">{{ comment.name }}</div> <!-- Muestra el nombre del autor del comentario. -->
+                                        <div class="comment-date">{{ comment.date }}</div> <!-- Muestra la fecha del comentario. -->
+                                        <div class="comment-action"> <!-- Contenedor para las acciones del comentario, como eliminar. -->
+                                            <a href="/delete_comment/{{ comment.id }}" style="text-decoration:none" class="trash-icon"> <!-- Enlace para eliminar el comentario. -->
+                                                <!-- Icono de Papelera vacía -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="red" class="bi bi-trash basic" viewBox="0 0 16 16">
+                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                </svg>
+                                                <!-- Icono de Papelera llena -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="red" class="bi bi-trash-fill filled" viewBox="0 0 16 16">
+                                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Segundo grupo: contenido del comentario -->
+                                    <div class="comment-content"> <!-- Contenedor para el contenido del comentario. -->
+                                        <div>{{ comment.comment }}</div> <!-- Muestra el texto del comentario. -->
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %} <!-- Fin del bucle para mostrar todos los comentarios. -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer> <!-- Sección de pie de página. -->
+        <div class="container"> <!-- Contenedor para centrar y dar estilo al contenido del pie de página. -->
+            <p>&copy; 2024 Tokio School. Autor Rubén Salazar.</p> <!-- Texto de derechos de autor y nombre del autor. -->
+        </div>
+    </footer>
+</body>
+</html>
