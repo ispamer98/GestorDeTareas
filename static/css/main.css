@@ -48,13 +48,7 @@ header h1 {
     margin: 10px; /* Margen alrededor del título */
 }
 
-/* Estilos para html y body */
-html, body {
-    height: 100%; /* Ocupar toda la altura de la ventana */
-    margin: 0; /* Eliminar margen predeterminado */
-    display: flex; /* Mostrar como flexbox */
-    flex-direction: column; /* Colocar elementos hijos en columna */
-}
+/* Estilos para body */
 
 body {
     background-image: url('../images/background.jpg'); /* Imagen de fondo */
@@ -65,14 +59,11 @@ body {
     flex-direction: column; /* Colocar elementos hijos en columna */
     min-height: 100vh; /* Altura mínima de la ventana */
     margin: 0; /* Eliminar margen */
-    padding-bottom: 40px; /* Espacio para el margen inferior del footer */
-    box-sizing: border-box; /* Incluir el relleno en el cálculo del tamaño total */
 }
 
 /* Estilos para el contenido principal */
 main {
     flex: 1; /* Permite que main ocupe todo el espacio disponible */
-    display: flex; /* Mostrar como flexbox */
     flex-direction: column; /* Colocar elementos hijos en columna */
     justify-content: center; /* Centrado vertical */
     align-items: center; /* Centrado horizontal */
@@ -81,7 +72,7 @@ main {
 
 /* Estilos para el pie de página */
 footer {
-    background-color: #333; /* Fondo gris oscuro */
+    background-color: rgba(51, 51, 51, 0.9); /* Fondo gris oscuro con 70% de opacidad */
     color: #fff; /* Texto blanco */
     padding: 20px 0; /* Relleno vertical */
     text-align: center; /* Alineación centrada del texto */
@@ -227,7 +218,6 @@ footer {
 
 /* Estilos para el botón de comentarios */
 .btn-comentarios {
-    background-color: #999999 !important; /* Fondo transparente */
     border: none !important; /* Sin borde */
     padding: 0; /* Sin relleno */
     outline: none; /* Eliminar el contorno al hacer clic */
@@ -263,3 +253,10 @@ footer {
 .btn-comentarios:hover svg.bi-envelope-at-fill {
     display: inline-block; /* Mostrar ícono lleno al pasar el ratón */
 }
+
+/* Contenedor para los botones */
+.buttons_container {
+    margin-top: 40px; /* Margen superior de 20px */
+    padding-left: 21%; /* Padding del 20% del ancho total */
+}
+

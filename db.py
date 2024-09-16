@@ -1,7 +1,7 @@
-#Engine es el que permite a SQLALchemy conectarse a la base de datos y hablar en un dialecto concreto
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+#Engine es el que permite a SQLALchemy conectarse a la base de datos y hablar en un dialecto concreto
 engine = create_engine("sqlite:///database/tasks.db",
                        connect_args={"check_same_thread":False})
                         #Hace que no compruebe desde que hilo se ejecuta, ya que al utilizar

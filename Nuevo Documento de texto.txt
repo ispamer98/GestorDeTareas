@@ -1,3 +1,0 @@
-SQLAlchemy
-Flask
-Python 3.12.2
