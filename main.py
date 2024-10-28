@@ -40,7 +40,11 @@ def init_data():
 
         # Agregamos instancias en la base de datos
         db.session.add_all([task1, task2, task3, task4, comment1, comment2, comment3, comment4])
-        db.session.commit()
+        try:
+            db.session.commit()  # Ejecutar la operación pendiente de la base de datos
+        except SQLAlchemyError as e:
+            db.session.rollback()
+            print(f"Error en la transacción: {e}")
         db.session.close()
 
 
@@ -74,7 +78,12 @@ def comments_form():
 def create_task():
     task=Task(content=request.form["content_task"],completed=False)
     db.session.add(task)
-    db.session.commit()
+    try:
+        db.session.commit()  # Ejecutar la operación pendiente de la base de datos
+    except SQLAlchemyError as e:
+        db.session.rollback()
+        print(f"Error en la transacción: {e}")
+    db.session.close()
     return redirect(url_for("home"))
 
 #El endpoint se encarga de crear el comentario con la info del action del html con el metodo post
@@ -82,7 +91,12 @@ def create_task():
 def create_comment():
     comment=Comment(name=request.form["name"],comment=request.form["comment"])
     db.session.add(comment)
-    db.session.commit()
+    try:
+        db.session.commit()  # Ejecutar la operación pendiente de la base de datos
+    except SQLAlchemyError as e:
+        db.session.rollback()
+        print(f"Error en la transacción: {e}")
+    db.session.close()
     return redirect(url_for("comments"))
 
 @app.route("/completed_task/<int:task_id>")
@@ -90,7 +104,12 @@ def completed_task(task_id):
     task = db.session.query(Task).filter(Task.id == task_id).first()
     if task:
         task.completed = not task.completed  # Invertir el estado completado
-        db.session.commit()
+        try:
+            db.session.commit()  # Ejecutar la operación pendiente de la base de datos
+        except SQLAlchemyError as e:
+            db.session.rollback()
+            print(f"Error en la transacción: {e}")
+        db.session.close()
     return redirect(url_for("home"))
 
 
@@ -99,7 +118,12 @@ def delete_comment(id):
     comment=db.session.query(Comment).filter_by(id=int(id)).delete()
     # Se busca dentro de la base de datos, aquel registro cuyo id coincida
     # con el aportado por el parametro de la ruta. Cuando se encuentra se elimina
-    db.session.commit() # Ejecutar la operación pendiente de la base de datos
+    try:
+        db.session.commit() # Ejecutar la operación pendiente de la base de datos
+    except SQLAlchemyError as e:
+        db.session.rollback()
+        print(f"Error en la transacción: {e}")
+    db.session.close()
     return redirect(url_for("comments")) # Esto nos redirecciona a la función comments()
     # y si ha ido bien, al refrescar, el comentario eliminado ya no aparecera en el listado
 
@@ -108,7 +132,13 @@ def delete(id):
     task = db.session.query(Task).filter_by(id=int(id)).delete()
     # Se busca dentro de la base de datos, aquel registro cuyo id coincida
     # con el aportado por el parametro de la ruta. Cuando se encuentra se elimina
-    db.session.commit() # Ejecutar la operación pendiente de la base de datos
+
+    try:
+        db.session.commit() # Ejecutar la operación pendiente de la base de datos
+    except SQLAlchemyError as e:
+        db.session.rollback()
+        print(f"Error en la transacción: {e}")
+    db.session.close()
     return redirect(url_for('home')) # Esto nos redirecciona a la función home()
     # y si ha ido bien, al refrescar, la tarea eliminada ya no aparecera en el listado
 
