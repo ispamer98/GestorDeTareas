@@ -1,21 +1,21 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-#Engine es el que permite a SQLALchemy conectarse a la base de datos y hablar en un dialecto concreto
-engine = create_engine("sqlite:///database/tasks.db",
-                       connect_args={"check_same_thread":False})
-                        #Hace que no compruebe desde que hilo se ejecuta, ya que al utilizar
-                        #Flask, la ejecución la hace toda en un solo hilo.
+# Cambia estos valores con tus credenciales de Clever Cloud
+DATABASE_USER = "urhewtjnb9xrgqd6"
+DATABASE_PASSWORD = "ed2yadnjkbbhGcAn9KvN"
+DATABASE_HOST = "buoxwl7ia36piwbtmxtk-mysql.services.clever-cloud.com"
+DATABASE_PORT = "3306"  # generalmente 3306 para MySQL
+DATABASE_NAME = "buoxwl7ia36piwbtmxtk"
 
+# Crear la cadena de conexión
+connection_string = f"mysql+pymysql://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
 
-#Cada clase creada en el archivo models.py, al añadirle esta variable, se encargara de
-#mapear y vincular cada clase a una tabla.
+# Configurar el engine y la sesión
+engine = create_engine(connection_string, pool_pre_ping=True)
 Base = declarative_base()
-
-
 Session = sessionmaker(bind=engine)
 session = Session()
-
 
 #Esto no conecta inmediatamente con la db, hay que hacerlo aparte
 
